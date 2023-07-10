@@ -1,11 +1,16 @@
 import Logo from "../../assets/logo.png";
+import { ContainerHeader } from "./styles";
 
 const Header = () => {
   return (
-    <div>
+    <ContainerHeader>
       <img src={Logo} alt="Logo principal" />
-      <h2>Header</h2>
-    </div>
+      <ul>
+        <li>Home</li>
+        <li>Filmes</li>
+        <li>Séries</li>
+      </ul>
+    </ContainerHeader>
   );
 };
 
