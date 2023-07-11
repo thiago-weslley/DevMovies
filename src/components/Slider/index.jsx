@@ -1,3 +1,4 @@
+import Card from "../Card";
 import { Container } from "./styles";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,7 +13,9 @@ const Slider = ({ info, title }) => {
         className="swiper"
       >
         {info.map((item, index) => (
-          <SwiperSlide key={index}>{item.original_title}</SwiperSlide>
+          <SwiperSlide key={index}>
+            <Card item={item} />
+          </SwiperSlide>
         ))}
       </Swiper>
     </Container>
