@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const ContainerHeader = styled.div`
+  z-index: 11;
   position: fixed;
   height: 14rem;
   width: 100%;
