@@ -15,7 +15,7 @@ export const Background = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.74);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
   }
 `;
@@ -23,15 +23,18 @@ export const Background = styled.div`
 export const Container = styled.div`
   z-index: 10;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 1rem;
-  width: 55%;
+  width: 60%;
+  height: 100%;
+  padding: 0 0 0 5rem;
 
   h1 {
     font-size: 4rem;
@@ -42,9 +45,20 @@ export const Info = styled.div`
     font-size: 2rem;
     margin-bottom: 3rem;
   }
+
+  div {
+    display: flex;
+    gap: 3rem;
+  }
 `;
 
 export const Poster = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   img {
     width: 35rem;
     border-radius: 1.5rem;
