@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { Background, Container, Info, Poster } from "./styles";
+import Button from "../../components/Button";
 
 const Home = () => {
   const [movie, setMovie] = useState();
@@ -27,6 +28,10 @@ const Home = () => {
             <Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
+              <div>
+                <Button isRed>Assistir Agora</Button>
+                <Button>Assistir Trailer</Button>
+              </div>
             </Info>
             <Poster>
               <img
