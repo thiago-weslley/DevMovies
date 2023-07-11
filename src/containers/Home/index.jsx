@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../services/api";
+import { getImages } from "../../utils/getImages";
 import { Background, Container, Info, Poster } from "./styles";
 import Button from "../../components/Button";
 import Slider from "../../components/Slider";
@@ -32,9 +33,7 @@ const Home = () => {
   return (
     <>
       {movie && (
-        <Background
-          img={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-        >
+        <Background img={getImages(movie.backdrop_path)}>
           <Container>
             <Info>
               <h1>{movie.title}</h1>
@@ -45,15 +44,12 @@ const Home = () => {
               </div>
             </Info>
             <Poster>
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                alt="Poster"
-              />
+              <img src={getImages(movie.poster_path)} alt="Poster" />
             </Poster>
           </Container>
         </Background>
       )}
-      {topMovies && (<Slider title={"Top Filmes"} info={topMovies} />)}
+      {topMovies && <Slider title={"Top Filmes"} info={topMovies} />}
     </>
   );
 };
