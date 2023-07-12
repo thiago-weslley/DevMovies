@@ -1,15 +1,22 @@
 import Logo from "../../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { ContainerHeader, Menu, Li } from "./styles";
+import { useState } from "react";
 
 const Header = () => {
   const { pathname } = useLocation();
+  const [changeBackground, setChangeBackground] = useState(false);
 
   window.onscroll = () => {
-    console.log('to deceno');
-  }
+    if (window.scrollY >= 50) {
+      setChangeBackground(true);
+    } else {
+      setChangeBackground(false);
+    }
+  };
+
   return (
-    <ContainerHeader>
+    <ContainerHeader $changeBackground={changeBackground}>
       <img src={Logo} alt="Logo principal" />
       <Menu>
         <Li $isActive={pathname === "/"}>
