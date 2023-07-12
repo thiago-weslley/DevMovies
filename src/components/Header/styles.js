@@ -27,6 +27,7 @@ export const Menu = styled.ul`
 `;
 
 export const Li = styled.li`
+  position: relative;
   user-select: none;
   cursor: pointer;
   font-size: 2.6rem;
@@ -35,5 +36,21 @@ export const Li = styled.li`
 
   a {
     color: white;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: ${(props) => (props.isActive ? "100%" : 0)};
+    background-color: #3d3de4;
+    transition: width 0.25s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;

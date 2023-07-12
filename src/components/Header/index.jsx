@@ -1,19 +1,21 @@
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ContainerHeader, Menu, Li } from "./styles";
 
 const Header = () => {
+  const { pathname } = useLocation();
+
   return (
     <ContainerHeader>
       <img src={Logo} alt="Logo principal" />
       <Menu>
-        <Li>
+        <Li isActive={pathname === "/"}>
           <Link to="/">Home</Link>
         </Li>
-        <Li>
+        <Li isActive={pathname.includes("filmes")}>
           <Link to="/filmes">Filmes</Link>
         </Li>
-        <Li>
+        <Li isActive={pathname.includes("series")}>
           <Link to="/series">Séries</Link>
         </Li>
       </Menu>
