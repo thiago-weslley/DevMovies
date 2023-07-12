@@ -7,7 +7,7 @@ export const ContainerHeader = styled.div`
   height: 8rem;
   width: 100%;
   padding: 0 6rem;
-  transition: all 0.4s ease-in-out;
+  transition: background 0.4s ease-in-out;
   background: ${(props) => (props.$changeBackground ? "#000" : "tranparent")};
 
   display: flex;
@@ -18,6 +18,14 @@ export const ContainerHeader = styled.div`
     width: 25rem;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.9));
     transition: all 0.3s;
+  }
+
+  @media screen and (max-width: 800px) {
+    img {
+      display: none;
+    }
+
+    justify-content: center;
   }
 `;
 
@@ -31,7 +39,7 @@ export const Li = styled.li`
   position: relative;
   user-select: none;
   cursor: pointer;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   filter: drop-shadow(3px 2px 1.5px rgba(0, 0, 0));
   transition: all 0.3s;
 
@@ -53,5 +61,9 @@ export const Li = styled.li`
 
   &:hover::after {
     width: 100%;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 1.6rem;
   }
 `;

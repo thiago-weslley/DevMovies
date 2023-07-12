@@ -17,7 +17,7 @@ const Home = () => {
         data: { results },
       } = await api.get("/movie/popular");
 
-      setMovie(results[0]);
+      setMovie(results[10]);
     };
 
     const getTopMovies = async () => {
