@@ -7,6 +7,7 @@ import Slider from "../../components/Slider";
 
 const Home = () => {
   const [movie, setMovie] = useState();
+  const [series, setSeries] = useState();
   const [topMovies, setTopMoovies] = useState();
   const [topSeries, setTopSeries] = useState();
 
@@ -35,6 +36,15 @@ const Home = () => {
       setTopSeries(results);
     };
 
+    const getSeries = async () => {
+      const {
+        data: { results },
+      } = await api.get("/tv/popular");
+
+      setSeries(results);
+    };
+
+    getSeries();
     getTopSeries();
     getMovies();
     getTopMovies();
@@ -61,6 +71,7 @@ const Home = () => {
       )}
       {topMovies && <Slider title={"Top Filmes"} info={topMovies} />}
       {topSeries && <Slider title={"Top Séries"} info={topSeries} />}
+      {series && <Slider title={"Séries em Alta"} info={series} />}
     </>
   );
 };
