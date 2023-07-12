@@ -1,15 +1,22 @@
 import Logo from "../../assets/logo.png";
-import { ContainerHeader } from "./styles";
+import { Link } from "react-router-dom";
+import { ContainerHeader, Menu, Li } from "./styles";
 
 const Header = () => {
   return (
     <ContainerHeader>
       <img src={Logo} alt="Logo principal" />
-      <ul>
-        <li>Home</li>
-        <li>Filmes</li>
-        <li>Séries</li>
-      </ul>
+      <Menu>
+        <Li>
+          <Link to="/">Home</Link>
+        </Li>
+        <Li>
+          <Link to="/filmes">Filmes</Link>
+        </Li>
+        <Li>
+          <Link to="/series">Séries</Link>
+        </Li>
+      </Menu>
     </ContainerHeader>
   );
 };
