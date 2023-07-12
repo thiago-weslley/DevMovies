@@ -53,7 +53,7 @@ const Home = () => {
   return (
     <>
       {movie && (
-        <Background img={getImages(movie.backdrop_path)}>
+        <Background $img={getImages(movie.backdrop_path)}>
           <Container>
             <Info>
               <h1>{movie.title}</h1>
