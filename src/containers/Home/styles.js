@@ -25,6 +25,7 @@ export const Background = styled.div`
 export const Container = styled.div`
   z-index: 10;
   display: flex;
+  width: 100%;
 
   @media screen and (max-width: 1000px) {
     flex-direction: column;
