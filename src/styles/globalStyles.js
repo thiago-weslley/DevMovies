@@ -9,6 +9,8 @@ export default createGlobalStyle`
         text-decoration: none;
         outline: none;
         font-family: 'Poppins', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     :root {
@@ -23,4 +25,4 @@ export default createGlobalStyle`
         background: #000;
         color: #fff;
     }
-`
+`;
