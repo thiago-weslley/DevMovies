@@ -11,6 +11,7 @@ export default createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         -webkit-tap-highlight-color: transparent;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        user-select: none;
     }
 
     :root {

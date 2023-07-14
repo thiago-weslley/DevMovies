@@ -57,11 +57,13 @@ export const Info = styled.div`
   h1 {
     font-size: 3.8rem;
     margin-bottom: 3rem;
+    filter: drop-shadow(4px 2px 5px rgba(0, 0, 0, 1));
   }
 
   p {
     font-size: 2rem;
     margin-bottom: 3rem;
+    text-align: justify;
   }
 
   div {
@@ -82,7 +84,6 @@ export const Info = styled.div`
     p {
       width: 80%;
       font-size: 1.6rem;
-      text-align: justify;
     }
 
     div {
@@ -115,6 +116,7 @@ export const Poster = styled.div`
   img {
     border-radius: 1.5rem;
     width: 30rem;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, .9));
   }
 
   @media screen and (max-width: 1000px) {

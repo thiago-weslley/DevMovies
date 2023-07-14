@@ -32,7 +32,6 @@ export const ContainerHeader = styled.div`
 export const Menu = styled.ul`
   display: flex;
   gap: 5rem;
-  transition: all 0.3s;
 `;
 
 export const Li = styled.li`
