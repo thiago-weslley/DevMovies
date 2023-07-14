@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 import { getImages } from "../../utils/getImages";
 import { Background, Container, Info, Poster } from "./styles";
@@ -17,7 +18,7 @@ const Home = () => {
         data: { results },
       } = await api.get("/movie/popular");
 
-      setMovie(results[10]);
+      setMovie(results[0]);
     };
 
     const getTopMovies = async () => {
@@ -59,7 +60,9 @@ const Home = () => {
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
               <div>
-                <Button isRed>Assistir Agora</Button>
+                <Link to={`/detalhe/${movie.id}`}>
+                  <Button isRed>Assistir Agora</Button>
+                </Link>
                 <Button>Assistir Trailer</Button>
               </div>
             </Info>
