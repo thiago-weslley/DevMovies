@@ -5,50 +5,28 @@ import { getImages } from "../../utils/getImages";
 import { Background, Container, Info, Poster } from "./styles";
 import Button from "../../components/Button";
 import Slider from "../../components/Slider";
+import {
+  getMovies,
+  getSeries,
+  getTopMovies,
+  getTopSeries,
+} from "../../services/getData";
 
 const Home = () => {
   const [movie, setMovie] = useState();
   const [series, setSeries] = useState();
-  const [topMovies, setTopMoovies] = useState();
+  const [topMovies, setTopMovies] = useState();
   const [topSeries, setTopSeries] = useState();
 
   useEffect(() => {
-    const getMovies = async () => {
-      const {
-        data: { results },
-      } = await api.get("/movie/popular");
-
-      setMovie(results[0]);
+    const getAllData = async () => {
+      setMovie(await getMovies());
+      setSeries(await getSeries());
+      setTopMovies(await getTopMovies());
+      setTopSeries(await getTopSeries());
     };
 
-    const getTopMovies = async () => {
-      const {
-        data: { results },
-      } = await api.get("/movie/top_rated");
-
-      setTopMoovies(results);
-    };
-
-    const getTopSeries = async () => {
-      const {
-        data: { results },
-      } = await api.get("/tv/top_rated");
-
-      setTopSeries(results);
-    };
-
-    const getSeries = async () => {
-      const {
-        data: { results },
-      } = await api.get("/tv/popular");
-
-      setSeries(results);
-    };
-
-    getSeries();
-    getTopSeries();
-    getMovies();
-    getTopMovies();
+    getAllData();
   }, []);
 
   return (
