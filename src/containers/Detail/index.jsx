@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./styles";
 import {
   getMovieById,
   getMovieVideos,
   getMovieCredits,
   getMovieSimilar,
 } from "../../services/getData";
+import { Container, Background } from "./styles";
+import { getImages } from "../../utils/getImages";
 
 const Detail = () => {
   const { id } = useParams();
@@ -36,9 +37,12 @@ const Detail = () => {
     getAllData();
   }, []);
   return (
-    <Container>
-      <div>detalhe</div>
-    </Container>
+    <>
+      {movieById && <Background $img={getImages(movieById.backdrop_path)} />}
+      <Container>
+        <div>detalhe</div>
+      </Container>
+    </>
   );
 };
 
