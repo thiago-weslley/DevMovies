@@ -6,7 +6,7 @@ import {
   getMovieCredits,
   getMovieSimilar,
 } from "../../services/getData";
-import { Container, Background } from "./styles";
+import { Container, Background, Cover } from "./styles";
 import { getImages } from "../../utils/getImages";
 
 const Detail = () => {
@@ -38,10 +38,16 @@ const Detail = () => {
   }, []);
   return (
     <>
-      {movieById && <Background $img={getImages(movieById.backdrop_path)} />}
-      <Container>
-        <div>detalhe</div>
-      </Container>
+      {movieById && (
+        <>
+          <Background $img={getImages(movieById.backdrop_path)} />
+          <Container>
+            <Cover>
+              <img src={getImages(movieById.poster_path)} alt="Poster" />
+            </Cover>
+          </Container>
+        </>
+      )}
     </>
   );
 };

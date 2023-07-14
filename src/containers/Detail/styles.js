@@ -1,6 +1,13 @@
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
 
-export const Container = styled.div``;
+const animationScale = keyframes`
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
 
 export const Background = styled.div`
   background-image: url(${(props) => props.$img});
@@ -8,8 +15,8 @@ export const Background = styled.div`
   background-repeat: no-repeat;
   background-position: center top;
   width: 100%;
-  min-height: 50vh;
-  position: absolute;
+  min-height: 50rem;
+  position: relative;
   z-index: -9;
 
   &::before {
@@ -32,5 +39,24 @@ export const Background = styled.div`
     height: 30%;
     background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
     z-index: 1;
+  }
+`;
+
+export const Container = styled.div`
+  margin-top: -15rem;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+
+export const Cover = styled.div`
+  padding: 2rem;
+  display: flex;
+
+  img {
+    width: 25rem;
+    border-radius: 12px;
+    animation: ${animationScale} .3s;
   }
 `;
