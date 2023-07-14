@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from "../../services/api";
 import { getImages } from "../../utils/getImages";
 import { Background, Container, Info, Poster } from "./styles";
 import Button from "../../components/Button";
@@ -20,10 +19,14 @@ const Home = () => {
 
   useEffect(() => {
     const getAllData = async () => {
-      setMovie(await getMovies());
-      setSeries(await getSeries());
-      setTopMovies(await getTopMovies());
-      setTopSeries(await getTopSeries());
+      Promise.all([getMovies(), getSeries(), getTopMovies(), getTopSeries()])
+        .then(([movie, series, topMovies, topSeries]) => {
+          setMovie(movie);
+          setSeries(series);
+          setTopMovies(topMovies);
+          setTopSeries(topSeries);
+        })
+        .catch((error) => console.error(error));
     };
 
     getAllData();
@@ -50,9 +53,9 @@ const Home = () => {
           </Container>
         </Background>
       )}
+      {series && <Slider title={"Séries em Alta"} info={series} />}
       {topMovies && <Slider title={"Top Filmes"} info={topMovies} />}
       {topSeries && <Slider title={"Top Séries"} info={topSeries} />}
-      {series && <Slider title={"Séries em Alta"} info={series} />}
     </>
   );
 };
