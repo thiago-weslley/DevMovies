@@ -33,7 +33,7 @@ export default createGlobalStyle`
 
     ::-webkit-scrollbar-thumb {
         border-radius: 1rem;
-        background: #797979;
+        background: #dc143c;
         transition: all 0.5s ease-in-out;
     }
 
