@@ -151,7 +151,7 @@ export const ContainerMovies = styled.div`
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 450px) {
     iframe {
       width: 90%;
       height: 180px;
