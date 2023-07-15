@@ -5,7 +5,7 @@ export const getMovies = async () => {
     data: { results },
   } = await api.get("/movie/popular");
 
-  return results[0];
+  return results[6];
 };
 
 export const getSeries = async () => {

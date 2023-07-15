@@ -17,13 +17,31 @@ export const Container = styled.div`
     text-align: center;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 580px) {
     h3 {
       font-size: 1.4rem;
+      width: 80%;
     }
 
     img {
-      height: 30rem;
+      height: 32rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    img {
+      height: 25rem;
+    }
+  }
+
+  @media screen and (max-width: 290px) {
+    h3 {
+      font-size: 1rem;
+      width: 98%;
+    }
+
+    img {
+      height: 18rem;
     }
   }
 `;
