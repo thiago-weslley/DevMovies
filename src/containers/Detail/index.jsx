@@ -6,7 +6,7 @@ import {
   getMovieCredits,
   getMovieSimilar,
 } from "../../services/getData";
-import { Container, Background, Cover, Info } from "./styles";
+import { Container, Background, Cover, Info, ContainerMovies } from "./styles";
 import { getImages } from "../../utils/getImages";
 import Pill from "../../components/Pill";
 import Credits from "../../components/Credits";
@@ -55,6 +55,20 @@ const Detail = () => {
               </div>
             </Info>
           </Container>
+          <ContainerMovies>
+            {movieVideos &&
+              movieVideos.map((video) => (
+                <div key={video.id}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.key}`}
+                    title="Youtube Video Player"
+                    height="600px"
+                    width="80%"
+                  ></iframe>
+                  <h4>{video.name}</h4>
+                </div>
+              ))}
+          </ContainerMovies>
         </>
       )}
     </>

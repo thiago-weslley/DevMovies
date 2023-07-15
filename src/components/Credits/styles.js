@@ -6,6 +6,7 @@ export const Title = styled.h3`
 
 export const Container = styled.div`
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 3rem;
   gap: 1rem;
@@ -13,6 +14,7 @@ export const Container = styled.div`
   div {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   img {
@@ -21,13 +23,14 @@ export const Container = styled.div`
   }
 
   p {
+    width: 90%;
     margin-top: 5px;
     text-align: center;
     font-size: 1.2rem;
     color: #fff;
   }
 
-  @media screen and (max-width: 1050px) {
+  @media screen and (max-width: 1100px) {
     justify-content: center;
   }
 `;

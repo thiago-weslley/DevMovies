@@ -48,7 +48,7 @@ export const Container = styled.div`
   justify-content: center;
   margin: 0 auto;
 
-  @media screen and (max-width: 1050px) {
+  @media screen and (max-width: 1100px) {
     flex-direction: column-reverse;
     align-items: center;
   }
@@ -59,13 +59,13 @@ export const Cover = styled.div`
   display: flex;
 
   img {
-    height: 50rem;
+    height: 60rem;
     border-radius: 12px;
     animation: ${animationScale} 0.3s;
     filter: drop-shadow(-10px -10px 8px rgba(0, 0, 0, 0.9));
   }
 
-  @media screen and (max-width: 1050px) {
+  @media screen and (max-width: 1100px) {
     img {
       height: 45rem;
     }
@@ -89,13 +89,14 @@ export const Info = styled.div`
   p {
     margin: 2rem 0 3rem 0;
     text-align: justify;
+    font-size: 1.55rem;
   }
 
-  @media screen and (max-width: 1050px) {
+  @media screen and (max-width: 1100px) {
     width: 90%;
 
     h2 {
-      font-size: 3.2rem;
+      font-size: 3rem;
     }
   }
 
@@ -106,6 +107,53 @@ export const Info = styled.div`
 
     p {
       font-size: 1.5rem;
+    }
+  }
+`;
+
+export const ContainerMovies = styled.div`
+  margin-top: 10rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  iframe {
+    border: 3px solid #dc143c;
+    border-radius: 10px;
+  }
+
+  h4 {
+    width: 78%;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1200px) {
+    iframe {
+      height: 400px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    iframe {
+      height: 300px;
+    }
+
+    h4 {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    iframe {
+      height: 200px;
     }
   }
 `;
