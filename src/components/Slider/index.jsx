@@ -1,12 +1,13 @@
 import Card from "../Card";
 import { Container } from "./styles";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const Slider = ({ info, title }) => {
   return (
     <Container>
       <h2>{title}</h2>
-      <Swiper grabCursor spaceBetween={10} slidesPerView={"auto"} >
+      <Swiper grabCursor slidesPerView={"auto"} spaceBetween={10}>
         {info.map((item, index) => (
           <SwiperSlide key={index}>
             <Card item={item} />

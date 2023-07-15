@@ -26,4 +26,23 @@ export default createGlobalStyle`
         background: #000;
         color: #fff;
     }
+
+    ::-webkit-scrollbar {
+        width: 0.9rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #797979;
+        transition: all 0.5s ease-in-out;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #222224;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
 `;

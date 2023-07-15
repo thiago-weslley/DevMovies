@@ -8,7 +8,7 @@ export const Container = styled.div`
     margin-top: 6rem;
     margin-bottom: 4rem;
   }
-  
+
   .swiper-wrapper {
     display: flex;
   }

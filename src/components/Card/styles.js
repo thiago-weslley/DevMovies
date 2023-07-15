@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  user-select: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +17,7 @@ export const Container = styled.div`
     text-align: center;
   }
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 450px) {
     h3 {
       font-size: 1.4rem;
     }
