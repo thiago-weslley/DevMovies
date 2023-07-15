@@ -8,7 +8,7 @@ const Header = () => {
   const [changeBackground, setChangeBackground] = useState(false);
 
   window.onscroll = () => {
-    if (window.scrollY >= 15) {
+    if (window.scrollY >= 5) {
       setChangeBackground(true);
     } else {
       setChangeBackground(false);

@@ -12,4 +12,17 @@ export const Container = styled.div`
     background-color: #dc143c;
     border-radius: 30px;
   }
+
+  @media screen and (max-width: 650px) {
+    font-size: 1.4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;

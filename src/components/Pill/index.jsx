@@ -1,7 +1,6 @@
 import { Container } from "./styles";
 
 const Pill = ({ genres }) => {
-  console.log(genres);
   return (
     <Container>
       {genres &&

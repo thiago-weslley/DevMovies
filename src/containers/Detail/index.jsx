@@ -6,8 +6,10 @@ import {
   getMovieCredits,
   getMovieSimilar,
 } from "../../services/getData";
-import { Container, Background, Cover } from "./styles";
+import { Container, Background, Cover, Info } from "./styles";
 import { getImages } from "../../utils/getImages";
+import Pill from "../../components/Pill";
+import Credits from "../../components/Credits";
 
 const Detail = () => {
   const { id } = useParams();
@@ -25,7 +27,6 @@ const Detail = () => {
         getMovieSimilar(id),
       ])
         .then(([movieById, movieVideos, movieCredits, movieSimilar]) => {
-          console.log({ movieById, movieVideos, movieCredits, movieSimilar });
           setMovieById(movieById);
           setMovieVideos(movieVideos);
           setMovieCredits(movieCredits);
@@ -45,6 +46,14 @@ const Detail = () => {
             <Cover>
               <img src={getImages(movieById.poster_path)} alt="Poster" />
             </Cover>
+            <Info>
+              <h2>{movieById.title}</h2>
+              <Pill genres={movieById.genres} />
+              <p>{movieById.overview}</p>
+              <div>
+                <Credits credits={movieCredits} />
+              </div>
+            </Info>
           </Container>
         </>
       )}

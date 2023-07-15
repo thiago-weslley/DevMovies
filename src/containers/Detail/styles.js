@@ -16,7 +16,7 @@ export const Background = styled.div`
   background-position: center top;
   width: 100%;
   min-height: 50rem;
-  position: relative;
+  position: absolute;
   z-index: -9;
 
   &::before {
@@ -27,7 +27,6 @@ export const Background = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.55);
-    z-index: 1;
   }
 
   &::after {
@@ -38,16 +37,21 @@ export const Background = styled.div`
     width: 100%;
     height: 30%;
     background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
-    z-index: 1;
   }
 `;
 
 export const Container = styled.div`
-  margin-top: -15rem;
-  width: 100vw;
+  padding-top: 350px;
+  width: 100%;
+  max-width: 1600px;
   display: flex;
   justify-content: center;
-  position: relative;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1050px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 export const Cover = styled.div`
@@ -55,8 +59,53 @@ export const Cover = styled.div`
   display: flex;
 
   img {
-    width: 25rem;
+    height: 50rem;
     border-radius: 12px;
-    animation: ${animationScale} .3s;
+    animation: ${animationScale} 0.3s;
+    filter: drop-shadow(-10px -10px 8px rgba(0, 0, 0, 0.9));
+  }
+
+  @media screen and (max-width: 1050px) {
+    img {
+      height: 45rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    img {
+      height: 34rem;
+    }
+  }
+`;
+
+export const Info = styled.div`
+  padding: 2rem;
+  width: 60%;
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  p {
+    margin: 2rem 0 3rem 0;
+    text-align: justify;
+  }
+
+  @media screen and (max-width: 1050px) {
+    width: 90%;
+
+    h2 {
+      font-size: 3.2rem;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    h2 {
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 `;
