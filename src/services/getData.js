@@ -5,15 +5,7 @@ export const getMovies = async () => {
     data: { results },
   } = await api.get("/movie/popular");
 
-  return results[6];
-};
-
-export const getSeries = async () => {
-  const {
-    data: { results },
-  } = await api.get("/tv/top_rated");
-
-  return results;
+  return results[0];
 };
 
 export const getTopMovies = async () => {
@@ -53,12 +45,4 @@ export const getMovieCredits = async (movieId) => {
   } = await api.get(`/movie/${movieId}/credits`);
 
   return cast;
-};
-
-export const getMovieSimilar = async (movieId) => {
-  const {
-    data: { results },
-  } = await api.get(`/movie/${movieId}/similar`);
-
-  return results[0];
 };

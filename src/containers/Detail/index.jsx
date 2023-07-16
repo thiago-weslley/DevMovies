@@ -4,33 +4,26 @@ import {
   getMovieById,
   getMovieVideos,
   getMovieCredits,
-  getMovieSimilar,
 } from "../../services/getData";
 import { Container, Background, Cover, Info, ContainerMovies } from "./styles";
 import { getImages } from "../../utils/getImages";
 import Pill from "../../components/Pill";
 import Credits from "../../components/Credits";
+import HeaderDetail from "../../components/HeaderDatail";
 
 const Detail = () => {
   const { id } = useParams();
   const [movieById, setMovieById] = useState();
   const [movieVideos, setMovieVideos] = useState();
   const [movieCredits, setMovieCredits] = useState();
-  const [movieSimilar, setMovieSimilar] = useState();
 
   useEffect(() => {
     const getAllData = async () => {
-      Promise.all([
-        getMovieById(id),
-        getMovieVideos(id),
-        getMovieCredits(id),
-        getMovieSimilar(id),
-      ])
+      Promise.all([getMovieById(id), getMovieVideos(id), getMovieCredits(id)])
         .then(([movieById, movieVideos, movieCredits, movieSimilar]) => {
           setMovieById(movieById);
           setMovieVideos(movieVideos);
           setMovieCredits(movieCredits);
-          setMovieSimilar(movieSimilar);
         })
         .catch((error) => console.error(error));
     };
@@ -39,10 +32,11 @@ const Detail = () => {
   }, []);
   return (
     <>
+      <HeaderDetail />
       {movieById && (
         <>
           <Background $img={getImages(movieById.backdrop_path)} />
-          <Container>
+          <Container id="detailContainer">
             <Cover>
               <img src={getImages(movieById.poster_path)} alt="Poster" />
             </Cover>
@@ -55,6 +49,7 @@ const Detail = () => {
               </div>
             </Info>
           </Container>
+          <div id="trailers"></div>
           <ContainerMovies>
             {movieVideos &&
               movieVideos.map((video) => (

@@ -4,25 +4,18 @@ import { getImages } from "../../utils/getImages";
 import { Background, Container, Info, Poster } from "./styles";
 import Button from "../../components/Button";
 import Slider from "../../components/Slider";
-import {
-  getMovies,
-  getSeries,
-  getTopMovies,
-  getTopSeries,
-} from "../../services/getData";
+import { getMovies, getTopMovies, getTopSeries } from "../../services/getData";
 
 const Home = () => {
   const [movie, setMovie] = useState();
-  const [series, setSeries] = useState();
   const [topMovies, setTopMovies] = useState();
   const [topSeries, setTopSeries] = useState();
 
   useEffect(() => {
     const getAllData = async () => {
-      Promise.all([getMovies(), getSeries(), getTopMovies(), getTopSeries()])
-        .then(([movie, series, topMovies, topSeries]) => {
+      Promise.all([getMovies(), getTopMovies(), getTopSeries()])
+        .then(([movie, topMovies, topSeries]) => {
           setMovie(movie);
-          setSeries(series);
           setTopMovies(topMovies);
           setTopSeries(topSeries);
         })
@@ -35,7 +28,7 @@ const Home = () => {
   return (
     <>
       {movie && (
-        <Background $img={getImages(movie.backdrop_path)}>
+        <Background id="homeContainer" $img={getImages(movie.backdrop_path)}>
           <Container>
             <Info>
               <h1>{movie.title}</h1>
@@ -53,9 +46,16 @@ const Home = () => {
           </Container>
         </Background>
       )}
-      {series && <Slider title={"Séries em Alta"} info={series} />}
-      {topMovies && <Slider title={"Top Filmes"} info={topMovies} />}
-      {topSeries && <Slider title={"Top Séries"} info={topSeries} />}
+      {topMovies && (
+        <div id="topMoviesSlider">
+          <Slider title={"Top Filmes"} info={topMovies} />
+        </div>
+      )}
+      {topSeries && (
+        <div id="seriesSlider">
+          <Slider title={"Top Séries"} info={topSeries} />
+        </div>
+      )}
     </>
   );
 };

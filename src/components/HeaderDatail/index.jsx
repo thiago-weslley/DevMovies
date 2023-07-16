@@ -4,7 +4,7 @@ import { ContainerHeader, Menu, Li } from "./styles";
 import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const Header = () => {
+const HeaderDetail = () => {
   const [changeBackground, setChangeBackground] = useState(false);
   const { pathname } = useLocation();
 
@@ -20,18 +20,18 @@ const Header = () => {
     <ContainerHeader $changeBackground={changeBackground}>
       <img src={Logo} alt="Logo principal" />
       <Menu>
-        <Li $isActive={pathname === "/"}>
-          <AnchorLink href="#homeContainer">Home</AnchorLink>
+        <Li>
+          <Link to="/">Home</Link>
         </Li>
-        <Li $isActive={pathname.includes("#topMoviesSlider")}>
-          <AnchorLink href="#topMoviesSlider">Filmes</AnchorLink>
+        <Li $isActive={pathname.includes("detalhe")}>
+          <AnchorLink href="#detailContainer">Detalhe</AnchorLink>
         </Li>
         <Li>
-          <AnchorLink href="#seriesSlider">Séries</AnchorLink>
+          <AnchorLink href="#trailers">Trailer</AnchorLink>
         </Li>
       </Menu>
     </ContainerHeader>
   );
 };
 
-export default Header;
+export default HeaderDetail;

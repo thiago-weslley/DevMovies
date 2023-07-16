@@ -41,7 +41,7 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-  padding-top: 350px;
+  padding-top: 250px;
   width: 100%;
   max-width: 1600px;
   display: flex;
@@ -59,7 +59,7 @@ export const Cover = styled.div`
   display: flex;
 
   img {
-    height: 60rem;
+    height: 58rem;
     border-radius: 12px;
     animation: ${animationScale} 0.3s;
     filter: drop-shadow(-10px -10px 8px rgba(0, 0, 0, 0.9));
